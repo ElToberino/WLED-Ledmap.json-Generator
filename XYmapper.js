@@ -9,6 +9,7 @@ function clearTest() {
 var matrixName = "my_matrix";
 var freeStyle = 0;
 var num_leds = 0;
+var start_led = 0;
 var xdim = 0;
 var ydim = 0;
 var pixelarray = [];
@@ -170,7 +171,7 @@ function buildArray(num_leds) {
   clearAll = (document.getElementById("clearAllCHK")).checked;
   matrixName = (document.getElementById("matrixName")).value;
 
-  for (i = 0; i < num_leds; i++) {
+  for (i =  0; i < num_leds; i++) {
     pixelarray[i] = [];
     if (clearAll == 1) {
       pixelarray[i][0] = "D";	// E = Enable, D = Disable, H = Hidden
@@ -193,6 +194,8 @@ function buildGrid(numBoxes) {
   clearContents(container);
   xdim = Number(document.getElementById('xdim').value);
   ydim = Number(document.getElementById('ydim').value);
+  
+  start_led = Number(document.getElementById('start_led').value);
 
   num_leds = xdim * ydim; // set the max number pixels
   buildArray(num_leds);
@@ -338,7 +341,7 @@ function countActiveLEDs() {
 }
 
 function renumberLEDs() {
-  var activeLEDs = 0;
+  var activeLEDs = 0+start_led;
   var inactiveLEDs = countActiveLEDs();
   var xtemp = 0;
   var ytemp = 0;

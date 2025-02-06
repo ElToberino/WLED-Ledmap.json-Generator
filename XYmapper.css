@@ -201,6 +201,7 @@ a:hover { color: red; text-decoration: underline; }
 
 .ledGrid {
   clear: both;
+ padding-top: 1em;
 }
 
 .buildBox {
